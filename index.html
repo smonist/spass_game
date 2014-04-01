@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body onload="rnd_pos_num()">
+<div id="kreis1" class = "kreis" onclick="high_rnd(this)">1</div>
+<div id="kreis2" class = "kreis" onclick="high_rnd(this)">2</div>
+<div id="kreis3" class = "kreis" onclick="high_rnd(this)">3</div>
+<div id="bg" onclick="bg_click()"></div>
+<div id="highscore">0</div>
+<div id="start_button" onclick="start_game()">Start</div>
+<div id="game_over_screen">
+	<div id="game_over_score"></div>
+	<div id="game_over_text">Game Over!</div>
+	<div id="try_again_button" onclick="start_game()">Try Again</div>
+</div>
+
+</body>
+</html>
