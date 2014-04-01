@@ -21,7 +21,6 @@ function start_game() {
 
 	document.getElementById("start_button").style.display = "none";
 	document.getElementById("game_over_screen").style.display = "none";
-	document.getElementById("game_over_score").style.display = "none";
 	document.getElementById("highscore").style.display = "initial";
 	running = true;
 	
@@ -53,7 +52,6 @@ function loose () {
 
 	game_over_score.innerHTML = score;
 	document.getElementById("game_over_screen").style.display = "initial";
-	document.getElementById("game_over_score").style.display = "initial";
 	document.getElementById("highscore").style.display = "none";
 }
 
@@ -64,6 +62,21 @@ function submit_highscore_show_input () {
 	document.getElementById("submit_highscore_screen").style.display = "initial";
 }
 
+function submit_highscore() {
+	var highscore_name = document.getElementById("highscore_input").value;
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			alert("DATA SENT!");
+		}
+	}
+
+
+	xmlhttp.open("GET", "submit_score.php?name=" +highscore_name +"&score=" +score, true);
+	xmlhttp.send();
+}
 
 function highest_num(id) {
 	if (id.innerHTML >= num1 && id.innerHTML >= num2 && id.innerHTML >= num3) {

@@ -165,9 +165,14 @@
 	display: none;
 }
 
-.highscore_input {
+#highscore_input {
 	background-color: #000;
-	border-style: solid;
+	border: none;
 	color: #FFF;
 	font-family: 'mechabold';
+	font-size:300%;
+	width: 350px;
+	height: 50px;
+	margin-left: 100px;
+	margin-top: 200px;
 }
