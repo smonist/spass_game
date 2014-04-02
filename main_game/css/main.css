@@ -7,7 +7,6 @@
          url('fonts/mecha_bold-webfont.svg#mechabold') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -19,8 +18,21 @@
          url('fonts/rainyhearts-webfont.svg#rainyheartsmedium') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
+
+
+@font-face {
+    font-family: 'mecharegular';
+    src: url('fonts/mecha-webfont.eot');
+    src: url('fonts/mecha-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/mecha-webfont.woff') format('woff'),
+         url('fonts/mecha-webfont.ttf') format('truetype'),
+         url('fonts/mecha-webfont.svg#mecharegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 .kreis {
 	border-radius: 50%;
