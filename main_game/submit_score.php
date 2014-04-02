@@ -11,7 +11,7 @@ $password = substr(fgets($handle, 4096), 0, -1);
 fclose($handle);
 
 
-$conn = new mysqli ($host, "u34646db1", "fielspasss", "u34646db1"); //Host, Name, Password, Table
+$conn = new mysqli ($host, $username, $password, "u34646db1"); //Host, Name, Password, Table
 
 
 $sql = "INSERT INTO highscores (`name`, `score`) VALUES (?, ?)";
