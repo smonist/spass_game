@@ -66,16 +66,15 @@ function submit_highscore() {
 	var highscore_name = document.getElementById("highscore_input").value;
 	var xmlhttp = new XMLHttpRequest();
 
+	xmlhttp.open("GET", "submit_score.php?name=" +highscore_name +"&score=" +score, true);
+	xmlhttp.send();
+	
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			alert("DATA SENT!");
 		}
 	}
-
-
-	xmlhttp.open("GET", "submit_score.php?name=" +highscore_name +"&score=" +score, true);
-	xmlhttp.send();
 }
 
 function highest_num(id) {
