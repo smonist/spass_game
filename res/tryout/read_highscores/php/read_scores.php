@@ -20,9 +20,7 @@ while ($table = $data->fetch_array()){
 	echo ' <td>'.$table[name].'</td>'; //der Name
 	echo ' <td>'.$table[score].'</td>';// die Punkte
 
-	$timestamp_db = strtotime($table[time]);
-	$timestamp_format = date("H:i d.m.Y", $timestamp_db);
-
+	$timestamp_format = date("H:i l, d.m.y", strtotime($table[time] + 7200));
 	echo ' <td>'.$timestamp_format.'</td>';// die Uhrzeit
 	echo ' </tr>';
 	$i+=1; //Platzierung wird um 1 erhöht
