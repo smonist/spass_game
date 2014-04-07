@@ -5,7 +5,7 @@
 <script type="text/javascript" src="js/main.js"></script>
 </head>
 
-<body onload="load_scores()">
+<body>
 <table rules="cols">
   <tr>
   <th>Rank</th>
@@ -24,6 +24,11 @@
   <td>asdfghjkl2</td>
   <td>asdfghjkl3</td>
   </tr>
+
 </table>
+
+  <input id="score_input" type="text" maxlength="3">
+  <input type="button" value="get scores in range!" onclick="load_score_range()">
+
 </body>
 </html>

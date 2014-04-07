@@ -5,7 +5,7 @@ if (isset($_GET["name"]) && isset($_GET["score"])) {
 }
 
 
-$conn = new mysqli ("localhost", "u34646db1", "fielspasss", "u34646db1"); //Host, Name, Password, Table
+$conn = new mysqli ("localhost", "u46698db1", "fielspasss", "u46698db1"); //Host, Name, Password, Table
 
 $sql = "INSERT INTO highscores (`name`, `score`) VALUES (?, ?)";
 

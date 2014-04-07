@@ -1,7 +1,7 @@
 <?php
-$conn = new mysqli ("localhost", "u34646db1", "fielspasss", "u34646db1"); //Host, Name, Password, Table
+$conn = new mysqli ("localhost", "u46698db1", "fielspasss", "u46698db1"); //Host, Name, Password, Table
 
-$data = $conn->query("SELECT * FROM  highscores ORDER BY score DESC LIMIT 10");
+$data = $conn->query("SELECT name, score, time FROM  highscores ORDER BY score DESC");
 
 echo '<table border="1" align="center" >';
 echo ' <tr>';
@@ -17,8 +17,8 @@ while ($table = $data->fetch_array()){
 	//und das ganze in einer Schleife(soviel Einträge wie im Array stehen) ausgegeben
 	echo ' <tr  align="center">';
 	echo ' <td>'.$i.'.</td>';  //Der Platz
-	echo ' <td>'.$table[name].'</td>'; //der Name
-	echo ' <td>'.$table[score].'</td>';// die Punkte
+	echo ' <td>'.$table['name'].'</td>'; //der Name
+	echo ' <td>'.$table['score'].'</td>';// die Punkte
 
 	$timestamp_format = date("H:i, d.m.y", strtotime($table['time'].'+2 hours'));
 	echo ' <td>'.$timestamp_format.'</td>';// die Uhrzeit
