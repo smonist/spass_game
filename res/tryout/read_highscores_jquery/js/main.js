@@ -2,7 +2,7 @@ function load_score_range () {
 	var score = document.getElementById("score_input").value;
 	var xmlhttp = new XMLHttpRequest();
 
-	xmlhttp.open("GET", "/tryout/read_highscores/php/read_scores_range.php?score=" + score, true);
+	xmlhttp.open("POST", "/tryout/read_highscores_jquery/php/read_scores_range.php?score=" + score, true);
 	xmlhttp.send();
 
 	xmlhttp.onreadystatechange = function() {
@@ -52,6 +52,20 @@ function addRow(rank, name, points, time)
 
          tabBody.appendChild(row);
 
-		var scores_text = document.getElementById("scores_text")
+		var scores_text = document.getElementById("scores_text");
 		scores_text.innerHTML = scores_text.innerHTML + "-" + rank + "-" + name + "-" + points + "-" + time;
+}
+
+function lol() {
+   $(document).ready(function() {
+      $("p").click(function() {
+         //$(this).hide();
+
+
+         $.post("/tryout/read_highscores_jquery/php/read_scores_range.php", {score: "5"}, 
+            function (data) {
+               alert(data);
+            });
+      });
+   });
 }
