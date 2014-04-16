@@ -1,4 +1,4 @@
-function load_score_range () {
+function load_score_range_xmlhttp () {
 	var score = document.getElementById("score_input").value;
 	var xmlhttp = new XMLHttpRequest();
 
@@ -14,11 +14,11 @@ function load_score_range () {
 			response_splitted = null;
 
 			response = xmlhttp.responseText;
-			response_splitted = response.split(',');
+			response_splitted = response.split(",");
 
-			for (i = 0; i <= response_splitted.length; i++) {
-				addRow(response_splitted[i], response_splitted[i+1], response_splitted[i+2], response_splitted[i+3]);
-			}
+         for (i = 0; i < Math.floor(response_splitted.length)-1; i += 4) {
+            addRow(response_splitted[i], response_splitted[i+1], response_splitted[i+2], response_splitted[i+3]);
+         }
 		}
 	};
 }
@@ -34,7 +34,7 @@ function addRow(rank, name, points, time)
          cell2 = document.createElement("TD");
          cell3 = document.createElement("TD");
          cell4 = document.createElement("TD");
-         textnode1=document.createTextNode("R " + rank);
+         textnode1=document.createTextNode(rank);
          textnode2=document.createTextNode(name);
          textnode3=document.createTextNode(points);
          textnode4=document.createTextNode(time);
@@ -56,16 +56,19 @@ function addRow(rank, name, points, time)
 		scores_text.innerHTML = scores_text.innerHTML + "-" + rank + "-" + name + "-" + points + "-" + time;
 }
 
-function lol() {
+function load_score_range_jquery() {
    $(document).ready(function() {
-      $("p").click(function() {
-         //$(this).hide();
+      $("#button_jquery").click(function() {
 
+         $.post("/tryout/read_highscores_jquery/php/read_scores_range.php", {score: $("#score_input").val()}, 
+            function (data) {      
+               $("#scores_text").text(data);
+               var response_splitted = data.split(",");
+               for (i = 0; i < Math.floor(response_splitted.length)-1; i += 4) {
+                  addRow(response_splitted[i], response_splitted[i+1], response_splitted[i+2], response_splitted[i+3]);
+               }
 
-         $.post("/tryout/read_highscores_jquery/php/read_scores_range.php", {score: "5"}, 
-            function (data) {
-               alert(data);
             });
       });
    });
-}
+}  

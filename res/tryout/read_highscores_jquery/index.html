@@ -6,7 +6,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 
-<body onload="lol()">
+<body onload="load_score_range_jquery()">
 <table rules="cols">
   <tr>
   <th>Rank</th>
@@ -21,10 +21,10 @@
 </table>
 
   <input id="score_input" type="text" maxlength="3">
-  <input type="button" value="get scores in range!" onclick="load_score_range()">
+  <input type="button" value="get scores in range with xmlhttp!" onclick="load_score_range_xmlhttp()">
+  <div id="button_jquery">get scores in range with jquery!</div>
+
   <div id="scores_text"></div>
-  <p>sasdf</p>
-  <p>3242</p>
 
 </body>
 </html>

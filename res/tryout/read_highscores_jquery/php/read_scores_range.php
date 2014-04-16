@@ -14,23 +14,30 @@ do {
 	$rank++;
 } while ($table['score'] >= $score);
 
-for ($i=0; $i < 10; $i++) { 
+
+send_data($table['name'], $table['score'], $table['time']);
+
+for ($i=0; $i < 10; $i++) {
 	if ($table = $data->fetch_array()) {
-		echo $rank;
-		echo ",";
-
-		echo $table['name'];
-		echo ",";
-
-		echo $table['score'];
-		echo ",";
-
-		$timestamp_format = date("H:i d.m.y", strtotime($table['time'].'+2 hours'));
-		echo $timestamp_format;
-		echo ",";
-		
-		$rank++;
+		send_data($table['name'], $table['score'], $table['time']);
 	}
+}
+
+function send_data($name, $score, $timestamp) {
+	echo $GLOBALS['rank'];
+	echo ",";
+
+	echo $name;
+	echo ",";
+
+	echo $score;
+	echo ",";
+
+	$timestamp_format = date("H:i d.m.y", strtotime($timestamp.'+2 hours'));
+	echo $timestamp_format;
+	echo ",";
+	
+	$GLOBALS['rank']++;
 }
 
 
