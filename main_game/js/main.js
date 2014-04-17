@@ -63,18 +63,10 @@ function submit_highscore_show_input () {
 }
 
 function submit_highscore() {
-	var highscore_name = document.getElementById("highscore_input").value;
-	var xmlhttp = new XMLHttpRequest();
-
-	xmlhttp.open("GET", "submit_score.php?name=" +highscore_name +"&score=" + score, true);
-	xmlhttp.send();
-	
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			alert("DATA SENT!");
-		}
-	}
+	$.post("php/submit_score.php", {name: document.getElementById("highscore_input").value, score: score}, 
+		function (data) {
+		alert("DATA SENT!");
+	});
 }
 
 function highest_num(id) {
