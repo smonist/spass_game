@@ -8,7 +8,7 @@ $conn = new mysqli ("localhost", "u46698db1", "fielspasss", "u46698db1"); //Host
 
 $data = $conn->query("SELECT name, score, time FROM  highscores ORDER BY score DESC");
 
-$rank = 1;
+$rank = 0;
 do {
 	$table = $data->fetch_array();
 	$rank++;

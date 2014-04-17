@@ -8,12 +8,14 @@
 
 <body onload="load_score_range_jquery()">
 <table rules="cols">
-  <tr>
-  <th>Rank</th>
-  <th>Name</th>
-  <th>Points</th>
-  <th>Time</th>
-  </tr>
+  <thead>
+    <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Points</th>
+    <th>Time</th>
+    </tr>
+  </thead>
 
   <tbody>
   </tbody>
@@ -21,7 +23,7 @@
 </table>
 
   <input id="score_input" type="text" maxlength="3">
-  <input type="button" value="get scores in range with xmlhttp!" onclick="load_score_range_xmlhttp()">
+  <input type="button" value="get scores in range with xmlhttp!" onclick="removeAll()">
   <div id="button_jquery">get scores in range with jquery!</div>
 
   <div id="scores_text"></div>
