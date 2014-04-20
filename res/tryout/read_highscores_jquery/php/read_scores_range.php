@@ -17,7 +17,7 @@ do {
 
 send_data($table['name'], $table['score'], $table['time']);
 
-for ($i=0; $i < 10; $i++) {
+for ($i=0; $i < 9; $i++) {
 	if ($table = $data->fetch_array()) {
 		send_data($table['name'], $table['score'], $table['time']);
 	}

@@ -32,7 +32,9 @@
     font-style: normal;
 }
 
-
+body {
+    -webkit-user-select: none;
+}
 
 .kreis {
 	border-radius: 50%;
@@ -49,8 +51,6 @@
 	vertical-align: middle;
 	line-height: 50px;
 
-	-webkit-user-select: none;
-
 	display: none;
 }
 
@@ -63,8 +63,6 @@
 	left: 0px;
 	top: 0px;
 	z-index:-1;
-
-	-webkit-user-select: none;
 }
 
 #highscore {
@@ -75,8 +73,6 @@
 	left: 550px;
 	top: 400px;
 	text-align: right;
-
-	-webkit-user-select: none;
 }
 
 #start_button {
@@ -94,8 +90,6 @@
 	position: absolute;
 	left: 200px;
 	top: 180px;
-
-	-webkit-user-select: none;
 }
 
 #game_over_screen {
@@ -112,8 +106,6 @@
 	padding-top: 50px;
 
 	width: 550px;
-
-	-webkit-user-select: none;
 }
 
 #game_over_text {
@@ -123,8 +115,6 @@
 	padding-top: 0px;
 
 	width: 550px;
-
-	-webkit-user-select: none;
 }
 
 #try_again_button {
@@ -142,8 +132,6 @@
 	position: absolute;
 	left: 300px;
 	top: 280px;
-
-	-webkit-user-select: none;
 }
 
 .submit_highscore_button {
@@ -161,8 +149,6 @@
 	position: absolute;
 	left: 100px;
 	top: 280px;
-
-	-webkit-user-select: none;
 }
 
 #submit_highscore_button_2 {

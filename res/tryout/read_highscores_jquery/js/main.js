@@ -47,23 +47,22 @@ function addRow(rank, name, points, time)
 }
 
 function load_score_range_jquery() {
-   $(document).ready(function() {
-      $("#button_jquery").click(function() {
+    $(document).ready(function () {
+        $("#button_jquery").click(function () {
+            if ($("#score_input").val() / 1 && $("#score_input").val()!=1) {
 
-         $.post("/tryout/read_highscores_jquery/php/read_scores_range.php", {score: $("#score_input").val()}, 
-            function (data) {
-               $("tbody tr").remove();
-               $("#scores_text").text(data);
-               var response_splitted = data.split(",");
-               for (i = 0; i < Math.floor(response_splitted.length)-1; i += 4) {
-                  addRow(response_splitted[i], response_splitted[i+1], response_splitted[i+2], response_splitted[i+3]);
-               }
-            });
-      });
-   });
-}
+                $.post("/tryout/read_highscores_jquery/php/read_scores_range.php", {
+                    score: $("#score_input").val()
+                },
 
-
-function removeAll() {
-
+                function (data) {
+                    $("tbody tr").remove();
+                    var response_splitted = data.split(",");
+                    for (i = 0; i < Math.floor(response_splitted.length) - 1; i += 4) {
+                        addRow(response_splitted[i], response_splitted[i + 1], response_splitted[i + 2], response_splitted[i + 3]);
+                    }
+                });
+            }
+        });
+    });
 }
