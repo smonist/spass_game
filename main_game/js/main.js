@@ -5,6 +5,7 @@ var old_res = [0, 0, 0, 0];
 
 var score = 0;
 var old_score = -1;
+var score_to_send = 0;
 
 var nIntervId;
 var running = false;
@@ -22,7 +23,10 @@ function start_game() {
 
 	document.getElementById("start_button").style.display = "none";
 	document.getElementById("game_over_screen").style.display = "none";
+	document.getElementById("highscore_screen").style.display = "none";
+
 	document.getElementById("highscore").style.display = "initial";
+
 	running = true;
 	
 	nIntervId = setInterval(timer, 1250);
@@ -52,20 +56,63 @@ function submit_highscore_show_input () {
 function submit_highscore() {
 	$.post("php/submit_score.php", {name: document.getElementById("highscore_input").value, score: score}, 
 		function (data) {
-		alert("DATA SENT!");
+			get_highscores(0);
+			document.getElementById("submit_highscore_screen").style.display = "none";
+			document.getElementById("highscore_screen").style.display = "initial";
 	});
+}
+
+//score_mode - 0=score, 1=input
+function get_highscores(score_mode) {
+		if(score_mode === 0) {
+			score_to_send = score;
+		}
+
+		else if ($("#score_input").val() / 1 && $("#score_input").val()!=1) {
+				score_to_send = document.getElementById("score_input").value;
+		}
+
+		$.post("/php/read_scores_range.php", {score: score_to_send}, function (data) {
+		    $("tbody tr").remove();
+		    var response_splitted = data.split(",");
+		    for (i = 0; i < Math.floor(response_splitted.length) - 1; i += 4) {
+		        addRow(response_splitted[i], response_splitted[i + 1], response_splitted[i + 2], response_splitted[i + 3]);
+		    }
+		});
 }
 
 
 
+function jquery_init() {
+    $(document).ready(function () {
+        $("#button_jquery").click(function () {
+        	get_highscores(1);
+        });
+    });
+}
+
+function addRow(rank, name, points, time)
+{
+   var cell = new Array();
+   var textnode = new Array();
+
+   tabBody=document.getElementsByTagName("TBODY").item(0);
+   row=document.createElement("TR");
 
 
+   textnode[1]=document.createTextNode(rank);
+   textnode[2]=document.createTextNode(name);
+   textnode[3]=document.createTextNode(points);
+   textnode[4]=document.createTextNode(time);
 
 
-
-
-
-
+   for (var i = 1; i <= 4; i++) {
+      cell[i] = document.createElement("TD");
+      cell[i].appendChild(textnode[i]);
+      row.appendChild(cell[i]);
+   }
+   tabBody.appendChild(row);
+}
 
 
 
@@ -138,7 +185,7 @@ function rnd_res(id) {
 
 function rnd_pos() {
 	for (var i = 1; i <= 3; i++) {
-		rnd_res("kreis" + i)
+		rnd_res("kreis" + i);
 	};
 }
 
@@ -153,6 +200,7 @@ function high_rnd (id) {
 function highest_num(id) {
     if (id.innerHTML >= num1 && id.innerHTML >= num2 && id.innerHTML >= num3) {
         score += 1;
+        highscore.innerHTML = score;
         return true;
     }
 
@@ -160,7 +208,6 @@ function highest_num(id) {
         loose();
         return false;
     }
-    highscore.innerHTML = score;
 }
 
 

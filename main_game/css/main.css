@@ -174,3 +174,85 @@ body {
 	margin-left: 100px;
 	margin-top: 200px;
 }
+
+
+
+
+
+#highscore_screen {
+	display: none;
+}
+
+
+table {
+	width: 550px;
+	background-color: #000;
+	color: #FFF;
+	font-family: 'mecharegular';
+    text-align: center;
+    font-size: 130%;
+}
+
+th {
+	border: 1px solid white;
+	font-size: 200%;
+	font-family: 'mechabold';
+    height: 40px;
+}
+
+tr {
+    height: 30px;
+    padding-top: 2px;
+}
+
+#score_input {
+    display:inline-block;
+    float: left;
+    margin-top: 1px;
+    width: 137px;
+    height: 38px;
+    border: none;
+    
+    font-family: 'mechabold';
+    font-size: 150%;
+    text-align: center; 
+
+    background-color: #000;
+    color: #FFF;
+}
+
+#button_jquery {
+    display:inline-block;
+    float: left;
+
+    width: 137px;
+    height: 40px;
+    margin-top: 1px;
+    margin-left: 1px;
+
+    font-family: 'mechabold';
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+
+    background-color: #000;
+    color: #FFF;
+}
+
+#try_again_button_highscore {
+    display:inline-block;
+    float: left;
+
+    width: 274px;
+    height: 40px;
+    margin-top: 1px;
+    margin-left: 1px;
+    
+    font-family: 'mechabold';
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+
+    background-color: #000;
+    color: #FFF;
+}

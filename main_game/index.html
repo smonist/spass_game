@@ -6,7 +6,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="jquery_init()">
 <div id="kreis1" class = "kreis" onclick="high_rnd(this)">1</div>
 <div id="kreis2" class = "kreis" onclick="high_rnd(this)">2</div>
 <div id="kreis3" class = "kreis" onclick="high_rnd(this)">3</div>
@@ -17,13 +17,35 @@
 	<div id="game_over_score"></div>
 	<div id="game_over_text">Game Over!</div>
 	<div id="try_again_button" onclick="start_game()">Try Again</div>
-	<div id="submit_highscore_button_1" class="submit_highscore_button"onclick="submit_highscore_show_input()">Submit Highscore</div>
+	<div id="submit_highscore_button_1" class="submit_highscore_button" onclick="submit_highscore_show_input()">Submit Highscore</div>
 </div>
 
 <div id="submit_highscore_screen">
 	<input type="text" id="highscore_input" maxlength="16">
 	<div id="submit_highscore_button_2" class="submit_highscore_button" onclick="submit_highscore()">Submit Highscore</div>
 </div>
+
+<div id="highscore_screen">
+	<table rules="cols">
+		<thead>
+			<tr>
+			<th>Rank</th>
+			<th>Name</th>
+			<th>Points</th>
+			<th>Time</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		</tbody>
+
+	</table>
+
+	<input id="score_input" type="text" maxlength="5">
+	<div id="button_jquery">Load Scores</div>
+	<div id="try_again_button_highscore" onclick="start_game()">Try Again</div>
+</div>
+
 
 </body>
 </html>

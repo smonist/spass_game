@@ -46,7 +46,7 @@ function addRow(rank, name, points, time)
    tabBody.appendChild(row);
 }
 
-function load_score_range_jquery() {
+function jquery_init() {
     $(document).ready(function () {
         $("#button_jquery").click(function () {
             if ($("#score_input").val() / 1 && $("#score_input").val()!=1) {
