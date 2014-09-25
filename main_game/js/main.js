@@ -211,11 +211,6 @@ function highest_num(id) {
 }
 
 
-
-
-
-
-
 function timer() {
     if (score === old_score) {
         loose();

@@ -2,7 +2,7 @@ function load_score_range_xmlhttp () {
 	var score = document.getElementById("score_input").value;
 	var xmlhttp = new XMLHttpRequest();
 
-	xmlhttp.open("POST", "/tryout/read_highscores_jquery/php/read_scores_range.php?score=" + score, true);
+	xmlhttp.open("POST", "/read_highscores_jquery/php/read_scores_range.php?score=" + score, true);
 	xmlhttp.send();
 
 	xmlhttp.onreadystatechange = function() {
@@ -51,7 +51,7 @@ function jquery_init() {
         $("#button_jquery").click(function () {
             if ($("#score_input").val() / 1 && $("#score_input").val()!=1) {
 
-                $.post("/tryout/read_highscores_jquery/php/read_scores_range.php", {
+                $.post("/read_highscores_jquery/php/read_scores_range.php", {
                     score: $("#score_input").val()
                 },
 
